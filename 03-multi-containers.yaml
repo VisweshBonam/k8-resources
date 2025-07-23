@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: multi-containers-demo
   labels:
-    check: "multi-containers running or not"
+    check: "multi-containers-check"
 spec:
   containers:
   - name: nginx
