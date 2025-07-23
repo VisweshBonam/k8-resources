@@ -4,6 +4,7 @@ metadata:
   name: multi-containers-demo
   labels:
     check: "multi-containers running or not"
+spec:
   containers:
   - name: nginx
     image: nginx
