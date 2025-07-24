@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: envar-demo
+  labels:
+    purpose: env-var-demo
+    env: dev
+
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name: COURSE
+      value: "DevOps"
+
+    - name: DURATION
+      value: "120hrs"  
