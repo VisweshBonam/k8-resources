@@ -21,7 +21,7 @@ spec:
 ---
 
 apiVersion: v1
-kind: Service
+kind: Pod
 metadata:
   name: nginx-np
   labels:
@@ -37,7 +37,7 @@ spec:
 
 
 apiVersion: v1
-kind: Service
+kind: Pod
 metadata:
   name: nginx-np-1
   labels:
@@ -48,4 +48,3 @@ metadata:
     containers:
       - name: nginx
         image: nginx
-        
