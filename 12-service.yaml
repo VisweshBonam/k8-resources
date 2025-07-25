@@ -32,3 +32,20 @@ spec:
     - name: nginx
       image: nginx
 
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-1
+  labels:
+    purpose: service-demo
+    project: roboshop
+    env: dev
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+
+
