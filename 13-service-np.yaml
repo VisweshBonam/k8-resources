@@ -44,7 +44,7 @@ metadata:
     purpose: service-demo-np
     project: roboshop
     env: dev
-  spec:
-    containers:
-      - name: nginx
-        image: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx
