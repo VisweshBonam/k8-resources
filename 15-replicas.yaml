@@ -22,4 +22,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx
+          image: nginx:stable-perl
+
+
+# the created 3 replica pods are not accessable externally, until u create a service to expose them
