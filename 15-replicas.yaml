@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: demo-rs
+  name: demo-rs-la
   labels:
     purpose: demo-replicas
     project: roboshop
