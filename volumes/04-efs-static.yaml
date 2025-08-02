@@ -13,3 +13,18 @@ spec:
   csi:
     driver: efs.csi.aws.com
     volumeHandle: fs-03df56af24c896718
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-static-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "" # This should be empty for static provisining
+  volumeName: efs-static-pv # give the claiming PV name
+  resources:
+    requests:
+      storage: 5Gi
