@@ -25,7 +25,7 @@ spec:
     - ReadWriteOnce #one Pod can read and write at a time
   resources:
     requests:
-      storage: 30Gi # we can claim near to the Disc Stoarge, we can't exceed that
+      storage: 15Gi # we can claim near to the Disc Stoarge, we can't exceed that
                     # You requested 15Gi, but the PV is 20Gi. Since you hard-coded volumeName, Kubernetes bound them directly, and you get the full 20Gi (not reduced to 15Gi)
                     # if u request more storage than PV have, it will not claim stoarge to PVC, it keeps it as PENDING
   
