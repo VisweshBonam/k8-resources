@@ -1,16 +1,16 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ebs-dynamic-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: ebs-dynamic-sc
-  resources:
-    requests:
-      storage: 4Gi
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: ebs-dynamic-pvc
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: ebs-dynamic-sc
+#   resources:
+#     requests:
+#       storage: 4Gi
 
----
+# ---
 
 apiVersion: v1
 kind: Service
@@ -77,7 +77,13 @@ spec:
           - name: persistent-volume
             mountPath: /usr/share/nginx/html
 
-      volumes:
-      - name: persistent-volume
-        persistentVolumeClaim:
-          claimName: ebs-dynamic-pvc
+      
+  volumeClaimTemplates:
+    - metadata:
+        name: persistent-storage
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: ebs-dynamic-sc
+        resources:
+          requests:
+            storage: 4Gi
