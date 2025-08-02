@@ -80,7 +80,7 @@ spec:
       
   volumeClaimTemplates:
     - metadata:
-        name: persistent-storage
+        name: persistent-volume
       spec:
         accessModes: [ "ReadWriteOnce" ]
         storageClassName: ebs-dynamic-sc
