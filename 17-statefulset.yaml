@@ -69,15 +69,15 @@ spec:
       labels:  # this should match .spec.selector.matchLabels
         purpose: statefullset-demo
         project: roboshop
-spec:
-  containers:
-    - name: nginx
-      image: nginx
-      volumeMounts:
-      - name: persistent-volume
-        mountPath: /usr/share/nginx/html
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          volumeMounts:
+          - name: persistent-volume
+            mountPath: /usr/share/nginx/html
 
-  volumes:
-  - name: persistent-volume
-    persistentVolumeClaim:
-      claimName: ebs-dynamic-pvc
+      volumes:
+      - name: persistent-volume
+        persistentVolumeClaim:
+          claimName: ebs-dynamic-pvc
