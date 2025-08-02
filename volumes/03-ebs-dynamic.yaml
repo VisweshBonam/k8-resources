@@ -42,6 +42,7 @@ metadata:
     purpose: ebs-static-demo
     project: roboshop
 spec:
+  type: LoadBalancer
   selector:
     purpose: ebs-static-demo
     project: roboshop
