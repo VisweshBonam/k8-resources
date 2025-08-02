@@ -28,3 +28,44 @@ spec:
   resources:
     requests:
       storage: 5Gi
+
+--- 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: eks-static-pod
+  labels:
+    purpose: eks-static-demo
+    project: roboshop
+
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      volumeMounts: #docker run -v host-path:container path
+      - name: persistent-volume
+        mountPath: /usr/share/nginx/html
+  volumes:
+  - name: persistent-volume
+    persistentVolumeClaim:
+      claimName: efs-static-pvc
+
+--- 
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: eks-static-service
+  labels:
+    purpose: eks-static-demo
+    project: roboshop
+spec:
+  selector:
+    purpose: eks-static-demo
+    project: roboshop
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
