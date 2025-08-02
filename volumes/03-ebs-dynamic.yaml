@@ -9,3 +9,43 @@ spec:
   resources:
     requests:
       storage: 4Gi
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ebs-dynamic-pod
+  labels:
+    purpose: ebs-static-demo
+    project: roboshop
+spec:
+  containers:
+  - name: nginx 
+    image: nginx
+    volumeMounts: # docker run -v host-path:conatiner-path
+    - name: persistent-storage
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: persistent-storage
+    persistentVolumeClaim:
+      claimName: ebs-dynamic-pvc
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ebs-dynamic-service
+  labels:
+    purpose: ebs-static-demo
+    project: roboshop
+spec:
+  selector:
+    purpose: ebs-static-demo
+    project: roboshop
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
