@@ -4,7 +4,8 @@ metadata:
   name: efs-dynamic-sc
 provisioner: efs.csi.aws.com
 parameters:
-  provisioningMode: efs-ap
+  provisioningMode: efs-ap # u no need to create access point manually, it create for us
   fileSystemId: fs-0d2a83dfbc7a26f4c
   directoryPerms: "700"
+  reclaimPolicy: Retain
   basePath: "/roboshop"  # its optional, but giving path is good, if not it store in rsndom path, now it take path like for user # /roboshop/user 
